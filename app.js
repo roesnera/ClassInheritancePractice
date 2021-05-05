@@ -91,7 +91,7 @@ class guesthouse extends house {
     }
 
     myGHouse() {
-        console.log('this condo is ' + this.size + ' ' + this.color + ' and made of ' + this.material + '.' + ' This condo cost ' + this.cost )
+        console.log('This condo is ' + this.size + ' ' + this.color + ' and made of ' + this.material + '.' + ' This condo cost ' + this.cost + '!' )
     }    
 }
 
