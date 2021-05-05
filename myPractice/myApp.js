@@ -19,14 +19,15 @@ class Developer extends Person {
 class Cook extends Person {
     constructor(name, age, numBooksRead) {
         super(name, age, numBooksRead);
-        this.isHungry = isHungry;
+        this.burnedFood = burnedFood;
     } 
 
-    eat () {
-        if(this.isHungry) {
-            this.isHungry = false;
+    burnedFood () {
+        if(this.burnedFood) {
+            this.burnedFood = false;
         } else {
-            console.log("Ugh, I'm so full.");
+            console.log("Ugh! I burnt the food!");
         }
     }
 }
+
