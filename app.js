@@ -1,69 +1,62 @@
-class Person {
-    //creates instance of Person with properties name, age, and numBooksRead
-    constructor(name, age, numBooksRead) {
-        this.name = name;
-        this.age = age;
-        this.numBooksRead = numBooksRead;
-    }
+class Aircraft {
+  constructor(model, type, crew) {
+    this.model = model;
+    this.type = type;
+    this.crew = crew;
+  }
 
-    //increments numBooksRead by 1
-    readNewBook() {
-        this.numBooksRead++;
-    }
+  //Add to the flight crew array
+  addCrew(crewman) {
+    this.crew++;
+  }
 }
 
-class Electrician extends Person {
-    //creates instance of Electrician with Person properites plus certifications, an array of strings
-    constructor(name, age, numBooksRead, certifications) {
-        super(name, age, numBooksRead);
-        this.certifications = certifications;
-    }
+//another aircraft that extend parent class
+class PassangerPlane extends Aircraft {
+  constructor(model, type, crew, flightHours) {
+    super(model, type, crew);
+    this.flightHours = flightHours;
+  }
 }
 
-class Teenager extends Person {
-    //creates instance of Teenager with Person properties plus isHungry, a boolean value
-    constructor(name, age, numBooksRead, isHungry = true) {
-        super(name, age, numBooksRead);
-        this.isHungry = isHungry;
+class FighterJet extends Aircraft {
+  constructor(model, type, crew, flightHours, armed) {
+    super(model, type, crew, flightHours);
+    this.flightHours = flightHours;
+    this.armed = armed;
+  }
+  hasArmament() {
+    if (this.armed) {
+        
+        this.armed = false;
+    } else {
+        this.armed = true;
     }
-
-    //feeds the teenager.  If they are hungry, changes isHungry to false, if they are not hungry, prints message to console.
-    eat() {
-        if(this.isHungry) {
-            this.isHungry = false;
-        } else {
-            console.log('Oh no I think I ate too much')
-        }
-    }
+  }
 }
 
-//below we will test our classes by instantiating them, calling each method, and verifying output
-
-//create instances of each class
-let person = new Person('Euthyphro', 35, 0);
-let electrician = new Electrician('Zeus', 28, 3, ['Lightning', 'Polymorphism']);
-let teen = new Teenager('Persius', 16, 5, true);
+//Testing class
+let aircraft = new Aircraft("747", "Fraight", 2);
+let airliner = new PassangerPlane("777", "Passanger Plane", 3, 3000);
+let fighter = new FighterJet("F/A-18", "Fighter Jet", 1, 220, true);
 
 //log each instance
-console.log(person);
-console.log(electrician);
-console.log(teen);
+console.log(aircraft);
+console.log(airliner);
+console.log(fighter);
 
-//call the method from the parent class to ensure it works as expected
-person.readNewBook();
-electrician.readNewBook();
-teen.readNewBook();
+//call the method from the parent class 
+    airliner.addCrew(2);
+    fighter.addCrew(1);
+    aircraft.addCrew(3);
 
-//log the objects after calling .readNewBook() to verify it worked as intended
-console.log(person);
-console.log(electrician);
-console.log(teen);
+//log the objects after calling
+console.log(aircraft);
+console.log(airliner);
+console.log(fighter);
 
-//call .eat()
-teen.eat();
-
-//check that .eat() when isHungry == true works as expected
-console.log(teen);
-
-//check that .eat() when isHungry == false works as expected
-teen.eat();
+//call is armed
+fighter.hasArmament();
+console.log("The arcraft is Armed: " + fighter.armed);
+fighter.hasArmament();
+console.log("The aircraft Armed: " + fighter.armed);
