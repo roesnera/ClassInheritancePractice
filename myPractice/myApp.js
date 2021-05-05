@@ -32,8 +32,8 @@ class Cook extends Person {
 }
 
 let person = new Person('Alyssa', 22, 10);
-let developer = new Developer('Ashley', 30, 3, ['JavaScript', 'JAVA']);
-let cook = new Cook('Persius', 16, 5, true);
+let developer = new Developer('Ashley', 30, 5, ['JavaScript', 'JAVA']);
+let cook = new Cook('Baylor', 26, 15, true);
 
 //log each instance
 console.log(person);
