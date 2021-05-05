@@ -70,7 +70,7 @@ teen.eat();
 
 
 class Vehicle {
-  constructor(model, color, fuelType) {
+  constructor(model, color, gasPedal) {
     this._model = model;
     this._color = color;
     this._gasPedal = gasPedal;
