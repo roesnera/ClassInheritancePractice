@@ -67,3 +67,41 @@ console.log(teen);
 
 //check that .eat() when isHungry == false works as expected
 teen.eat();
+
+
+class Vehicle {
+  constructor(model, color, gasPedal) {
+    this._model = model;
+    this._color = color;
+    this._gasPedal = gasPedal;
+  }
+  get model() {
+    return this._model;
+  }
+  get color() {
+    return this._color;
+  }
+  get gasPedal() {
+    return this._gasPedal;
+  }
+  accelerate() {
+    this._gasPedal++
+  }
+}
+
+class Audi extends Vehicle {
+  constructor(model, engineType) {
+    this._engineType = engineType;
+  }
+  engineType() {
+    return this._engineType;
+  }
+}
+class Ferrari extends Vehicle {
+  constructor(model, isSportCar) {
+    this.isSportCar = isSportCar;
+  }
+  isSportCar() {
+    return this._isSportCar;
+  }
+}
