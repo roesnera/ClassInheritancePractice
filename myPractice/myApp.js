@@ -22,7 +22,7 @@ class Cook extends Person {
         this.burnedFood = burnedFood;
     } 
 
-    burnedFood () {
+    burnt() {
         if(this.burnedFood) {
             this.burnedFood = false;
         } else {
@@ -35,7 +35,20 @@ let person = new Person('Alyssa', 22, 10);
 let developer = new Developer('Ashley', 30, 5, ['JavaScript', 'JAVA']);
 let cook = new Cook('Baylor', 26, 15, true);
 
-//log each instance
 console.log(person);
 console.log(developer);
 console.log(cook);
+
+person.readNewBook();
+developer.readNewBook();
+cook.readNewBook();
+
+console.log(person);
+console.log(developer);
+console.log(cook);
+
+cook.burnt();
+
+console.log(cook);
+
+cook.burnt(); 
