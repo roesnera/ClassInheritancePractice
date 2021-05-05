@@ -10,14 +10,14 @@ class Person {
 }
 
 class Developer extends Person {
-    constructor(name, age, numBooksRead) {
+    constructor(name, age, numBooksRead, numKnownProgrammingLang) {
         super(name, age, numBooksRead);
         this.numKnownProgrammingLang = numKnownProgrammingLang;
     }
 }
 
 class Cook extends Person {
-    constructor(name, age, numBooksRead) {
+    constructor(name, age, numBooksRead, burnedFood) {
         super(name, age, numBooksRead);
         this.burnedFood = burnedFood;
     } 
