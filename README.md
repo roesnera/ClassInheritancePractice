@@ -1,6 +1,6 @@
 # ClassInheritancePractice
 
-Today you work on objects, classes, and inheritance.  To do this, you will work independently on this project.  It should take you about 45 minutes.
+Today you work on objects, classes, and inheritance.  To do this, you will work independently on this project.  It should take you about 35 minutes.
 
 For this project you will make three classes: one parent class and two child classes.
 
