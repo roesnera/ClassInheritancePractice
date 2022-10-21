@@ -1,69 +1,57 @@
-class Person {
-    //creates instance of Person with properties name, age, and numBooksRead
-    constructor(name, age, numBooksRead) {
-        this.name = name;
-        this.age = age;
-        this.numBooksRead = numBooksRead;
+/* This was a Generation class project to show our understanding of class inheritance. Each of the books can get a star or poop pile based on the rating. But only the memoir category can be given a thumbs up or down based on whether the audiobook is read by the author. */
+
+class ToRead {
+    constructor(title, author, rating) {
+        this.title = title;
+        this.author = author;
+        this.rating = rating;
     }
 
-    //increments numBooksRead by 1
-    readNewBook() {
-        this.numBooksRead++;
+    addStar(){
+        if(this.rating > 3){
+        console.log(`${this.title} ⭐`);
+    } else {
+        console.log(`${this.title} 💩`);
+        }
+     }
     }
-}
-
-class Electrician extends Person {
-    //creates instance of Electrician with Person properites plus certifications, an array of strings
-    constructor(name, age, numBooksRead, certifications) {
-        super(name, age, numBooksRead);
-        this.certifications = certifications;
+class Memoir extends ToRead {
+    constructor(title, author, rating, audioReadByAuthor = true) {
+        super(title, author, rating);
+        this.audioReadByAuthor = audioReadByAuthor;
     }
-}
-
-class Teenager extends Person {
-    //creates instance of Teenager with Person properties plus isHungry, a boolean value
-    constructor(name, age, numBooksRead, isHungry = true) {
-        super(name, age, numBooksRead);
-        this.isHungry = isHungry;
-    }
-
-    //feeds the teenager.  If they are hungry, changes isHungry to false, if they are not hungry, prints message to console.
-    eat() {
-        if(this.isHungry) {
-            this.isHungry = false;
+    thumbs() {
+        if(this.audioReadByAuthor){
+            this.audioReadByAuthor = true;
+            console.log(`${this.title} is read by the author! 👍🏻 Heck yes! Let's listen!`)
         } else {
-            console.log('Oh no I think I ate too much')
+            console.log(`${this.title} is read by a narrator. 👎🏻 Boo. Best to skip this one.`)
         }
     }
 }
 
-//below we will test our classes by instantiating them, calling each method, and verifying output
+class comingOfAge extends ToRead {
+    constructor(title, author, rating, decadeSet) {
+        super(title, author, rating, decadeSet);
+        this.decadeSet = decadeSet;
+    }
+}
 
-//create instances of each class
-let person = new Person('Euthyphro', 35, 0);
-let electrician = new Electrician('Zeus', 28, 3, ['Lightning', 'Polymorphism']);
-let teen = new Teenager('Persius', 16, 5, true);
+let memoir = new Memoir('Born a Crime', 'Trevor Noah', '4', true);
+let memoir2 = new Memoir('A Million Little Pieces', 'Jame Frey', '1', false);
+let cOfAge = new comingOfAge('A Tree Grows in Brooklyn', 'Betty Smith', '4', '1910');
 
-//log each instance
-console.log(person);
-console.log(electrician);
-console.log(teen);
+console.log(memoir);
+console.log(memoir2);
+console.log(cOfAge);
 
-//call the method from the parent class to ensure it works as expected
-person.readNewBook();
-electrician.readNewBook();
-teen.readNewBook();
+memoir.addStar();
+memoir2.addStar();
+cOfAge.addStar();
 
-//log the objects after calling .readNewBook() to verify it worked as intended
-console.log(person);
-console.log(electrician);
-console.log(teen);
+console.log(memoir);
+console.log(memoir2);
+console.log(cOfAge);
 
-//call .eat()
-teen.eat();
-
-//check that .eat() when isHungry == true works as expected
-console.log(teen);
-
-//check that .eat() when isHungry == false works as expected
-teen.eat();
+memoir.thumbs();
+memoir2.thumbs();
